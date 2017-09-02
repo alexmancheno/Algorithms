@@ -1,0 +1,7 @@
+Run these commands from the same location of this text file:
+
+Compile:
+    javac src/*.java -d bin 
+
+Run:
+    java -cp bin Main src/input.txt src/output.txt    

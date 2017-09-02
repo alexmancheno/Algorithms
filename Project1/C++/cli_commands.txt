@@ -1,0 +1,7 @@
+Run these commands from the same location of this text file:
+
+Compile: 
+    g++ src/*.cpp -o bin/a.out
+
+Run: 
+    bin/a.out src/input.txt src/output.txt 
