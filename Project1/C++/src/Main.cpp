@@ -12,13 +12,18 @@ int main(int argc, char** argv)
     ll->printList();
     output << ll->toString() << endl;
     string word;
+    int i = 0;
 
     while (input.good()) 
     {
-        input >> word;
+        input >> word;        
         ll->listInsert(word);
-        output << ll->toString() << endl;
-        ll->printList();
+        if (i < 15)
+        {
+            output << ll->toString() << endl;
+            ll->printList();
+            i++;
+        }
     }
 
     output.close();

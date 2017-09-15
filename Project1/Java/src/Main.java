@@ -16,12 +16,18 @@ public class Main
             writer.write(ll.toString() + "\n");
 
             String s;
+            int i = 0;
+
             while (reader.hasNext())
             {
                 s = reader.next();
                 ll.listInsert(s);
-                ll.printList();
-                writer.write(ll.toString() + "\n");
+                if (i < 15)
+                {
+                    ll.printList();
+                    writer.write(ll.toString() + "\n");
+                    i++;
+                }
             }
    
             reader.close();

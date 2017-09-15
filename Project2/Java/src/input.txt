@@ -1,0 +1,31 @@
+Below is the algorithm steps for the bubble sort:
+
+Step 0: include and declare everything that are needed for the program
+Step 1: open the input file, data.txt // the file you had created in question 6.
+Step 2: read from the input file and count the number of integers in the file, and store the number in an   integer variable, named, dataCount.
+Step 3: close the input file
+Step 4: dynamically (no credits for other wise) allocate an integer array, named dataSorted, with the size of dataCount  //result in Stept 2 
+Step 5: open the input file, data.txt, again
+Step 6: read from the input file one integer at a time (no credits for reading one text line at a time) 
+	and store the integer in the arrary  dataSorted
+Step 7: set startIndex  to  0 
+            Set endIndex  to dataCount – 1
+Step 8: set walkerIndex to  startIndex
+Step 9: if dataSorted[walkerIndex] > dataSorted[walkerIndex + 1]
+     Set temp to  dataSorted[walkerIndex]
+                  Set dataSorted[walkerIndex] to dataSorted[walkerIndex + 1]
+                  Set dataSort[walkerIndex + 1] to temp
+Step 10: walkerIndex ++
+Step 11: repeat Step 9 and Step 10 until walkerIndex >= endIndex
+Step 13: endIndex --
+Step 14: repeat Step 8 to Step 13 until endIndex <= startIndex
+
+Step 15: open an output file, be named, bubbleSort
+Step 16: write the content of the array, dataSorted, to the file bubbleSort
+
+
+
+
+1
+
+
