@@ -1,0 +1,14 @@
+postOrder: 
+t = { 'chStr' : 'm', 'prob' : 47, 'next->chStr' : 'pkwdfh', 'left->chStr' : null, 'right->chStr' : null }
+t = { 'chStr' : 'p', 'prob' : 25, 'next->chStr' : 'kwdfh', 'left->chStr' : null, 'right->chStr' : null }
+t = { 'chStr' : 'k', 'prob' : 6, 'next->chStr' : 'wdf', 'left->chStr' : null, 'right->chStr' : null }
+t = { 'chStr' : 'w', 'prob' : 1, 'next->chStr' : 'd', 'left->chStr' : null, 'right->chStr' : null }
+t = { 'chStr' : 'd', 'prob' : 2, 'next->chStr' : 'wd', 'left->chStr' : null, 'right->chStr' : null }
+t = { 'chStr' : 'wd', 'prob' : 3, 'next->chStr' : 'f', 'left->chStr' : 'w', 'right->chStr' : 'd' }
+t = { 'chStr' : 'f', 'prob' : 4, 'next->chStr' : 'k', 'left->chStr' : null, 'right->chStr' : null }
+t = { 'chStr' : 'wdf', 'prob' : 7, 'next->chStr' : 'kwdf', 'left->chStr' : 'wd', 'right->chStr' : 'f' }
+t = { 'chStr' : 'kwdf', 'prob' : 13, 'next->chStr' : 'h', 'left->chStr' : 'k', 'right->chStr' : 'wdf' }
+t = { 'chStr' : 'h', 'prob' : 15, 'next->chStr' : 'p', 'left->chStr' : null, 'right->chStr' : null }
+t = { 'chStr' : 'kwdfh', 'prob' : 28, 'next->chStr' : 'm', 'left->chStr' : 'kwdf', 'right->chStr' : 'h' }
+t = { 'chStr' : 'pkwdfh', 'prob' : 53, 'next->chStr' : 'mpkwdfh', 'left->chStr' : 'p', 'right->chStr' : 'kwdfh' }
+t = { 'chStr' : 'mpkwdfh', 'prob' : 100, 'next->chStr' : null, 'left->chStr' : 'm', 'right->chStr' : 'pkwdfh' }
