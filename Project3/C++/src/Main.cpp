@@ -16,7 +16,6 @@ struct listBinTreeNode
     {
         next = NULL;
         prob = 0;
-        chStr = "";
         next = NULL;
         left = NULL;
         right = NULL;
@@ -37,25 +36,21 @@ struct listBinTreeNode
     string toString()
     {
         // ---- Return the contents of this node ----
-        string s = "t = { 'chStr' : ";
 
         // Concatenate current node's chStr and prob.
-        s += "'" + chStr + "', 'prob' : " + to_string(prob) + ", ";
+        string s = "(\"" + chStr + "\", " + to_string(prob) + ", ";
 
         // Concatenate next node's chStr.
-        s += "'next->chStr' : ";
-        if (this->next == NULL) s += "NULL, ";
-        else                    s += "'" + next->chStr + "', ";
+        if (next == NULL) s += "NULL, ";
+        else              s += "\"" + next->chStr + "\", ";
 
         // Concatenate left node's chStr.
-        s += "'left->chStr' : ";
-        if (this->left == NULL) s += "NULL, ";
-        else                    s += "'" + left->chStr + "', ";
+        if (left == NULL) s += "NULL, ";
+        else              s += "\"" + left->chStr + "\", ";
 
         // Concatenate right node's chStr.
-        s += "'right->chStr' : ";
-        if (this->right == NULL) s += "NULL }";
-        else                     s += "'" + right->chStr + "' }";
+        if (right == NULL) s += "NULL)";
+        else               s += "\"" + right->chStr + "\")";
 
         return s;
     }
@@ -76,6 +71,7 @@ struct HuffmanLinkedList
         int prob;
 
         output5 << "constructHuffmanList(input, output5): \n";
+        cout << "constructHuffmanList(input, output5): \n";
 
         while (input.good())
         {
@@ -115,14 +111,14 @@ struct HuffmanLinkedList
 
     void printList()
     {
-        cout << this->toString() << endl;
+        cout << toString() << endl;
     }
 
     string toString()
     {
         string nextString;
         string result = "listHead-->";
-        for (listBinTreeNode* i = this->listHead; i != NULL; i = i->next)
+        for (listBinTreeNode* i = listHead; i != NULL; i = i->next)
         {
             if (i->next == NULL) nextString = "NULL)-->";
             else                 nextString = "\"" + i->next->chStr + "\")-->";
@@ -152,6 +148,7 @@ struct HuffmanBinaryTree
         listBinTreeNode* newNode;
 
         output5 << "constructHuffmanBinTree(list, output5): \n";
+        cout << "constructHuffmanBinTree(list, output5): \n";
 
         // Keep going until there is one node in list. 
         while (list->listHead->next != NULL) 
@@ -262,14 +259,19 @@ int main(int argc, char** argv)
     hbt->constructHuffmanBinTree(hll, output5);      
 
     // Create the code for each char.
+    output1 << "constructCharCode(hbt->root, \"\", output1):\n";
+    cout << "constructCharCode(hbt->root, \"\", output1):\n";
     HuffmanBinaryTree::constructCharCode(hbt->root, "", output1);  
 
     output2 << "preOrder: \n";
     output3 << "inOrder: \n";
     output4 << "postOrder: \n";
 
-    hbt->preOrder(hbt->root, output2); 
+    cout << "preOrder: \n";
+    hbt->preOrder(hbt->root, output2);
+    cout << "inOrder: \n"; 
     hbt->inOrder(hbt->root, output3);
+    cout << "postOrder: \n";
     hbt->postOrder(hbt->root, output4);
 
     input.close();

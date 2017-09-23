@@ -1,14 +1,14 @@
 preOrder: 
-t = { 'chStr' : 'mpkwdfh', 'prob' : 100, 'next->chStr' : null, 'left->chStr' : 'm', 'right->chStr' : 'pkwdfh' }
-t = { 'chStr' : 'm', 'prob' : 47, 'next->chStr' : 'pkwdfh', 'left->chStr' : null, 'right->chStr' : null }
-t = { 'chStr' : 'pkwdfh', 'prob' : 53, 'next->chStr' : 'mpkwdfh', 'left->chStr' : 'p', 'right->chStr' : 'kwdfh' }
-t = { 'chStr' : 'p', 'prob' : 25, 'next->chStr' : 'kwdfh', 'left->chStr' : null, 'right->chStr' : null }
-t = { 'chStr' : 'kwdfh', 'prob' : 28, 'next->chStr' : 'm', 'left->chStr' : 'kwdf', 'right->chStr' : 'h' }
-t = { 'chStr' : 'kwdf', 'prob' : 13, 'next->chStr' : 'h', 'left->chStr' : 'k', 'right->chStr' : 'wdf' }
-t = { 'chStr' : 'k', 'prob' : 6, 'next->chStr' : 'wdf', 'left->chStr' : null, 'right->chStr' : null }
-t = { 'chStr' : 'wdf', 'prob' : 7, 'next->chStr' : 'kwdf', 'left->chStr' : 'wd', 'right->chStr' : 'f' }
-t = { 'chStr' : 'wd', 'prob' : 3, 'next->chStr' : 'f', 'left->chStr' : 'w', 'right->chStr' : 'd' }
-t = { 'chStr' : 'w', 'prob' : 1, 'next->chStr' : 'd', 'left->chStr' : null, 'right->chStr' : null }
-t = { 'chStr' : 'd', 'prob' : 2, 'next->chStr' : 'wd', 'left->chStr' : null, 'right->chStr' : null }
-t = { 'chStr' : 'f', 'prob' : 4, 'next->chStr' : 'k', 'left->chStr' : null, 'right->chStr' : null }
-t = { 'chStr' : 'h', 'prob' : 15, 'next->chStr' : 'p', 'left->chStr' : null, 'right->chStr' : null }
+("mpkwdfh", 100, NULL, "m", "pkwdfh")
+("m", 47, "pkwdfh", NULL, NULL)
+("pkwdfh", 53, "mpkwdfh", "p", "kwdfh")
+("p", 25, "kwdfh", NULL, NULL)
+("kwdfh", 28, "m", "kwdf", "h")
+("kwdf", 13, "h", "k", "wdf")
+("k", 6, "wdf", NULL, NULL)
+("wdf", 7, "kwdf", "wd", "f")
+("wd", 3, "f", "w", "d")
+("w", 1, "d", NULL, NULL)
+("d", 2, "wd", NULL, NULL)
+("f", 4, "k", NULL, NULL)
+("h", 15, "p", NULL, NULL)

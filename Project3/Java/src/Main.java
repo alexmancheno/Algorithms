@@ -36,25 +36,21 @@ class listBinTreeNode
     public String toString()
     {
         // ---- Return the contents of this node ----
-        String s = "t = { 'chStr' : ";
 
         // Concatenate current node's chStr and prob.
-        s += "'" + chStr + "', 'prob' : " + prob + ", ";
+        String s = "(\"" + chStr + "\", " + prob + ", ";
 
         // Concatenate next node's chStr.
-        s += "'next->chStr' : ";
-        if (next == null) s += "null, ";
-        else                    s += "'" + next.chStr + "', ";
+        if (next == null) s += "NULL, ";
+        else              s += "\"" + next.chStr + "\", ";
 
         // Concatenate left node's chStr.
-        s += "'left->chStr' : ";
-        if (left == null) s += "null, ";
-        else                    s += "'" + left.chStr + "', ";
+        if (left == null) s += "NULL, ";
+        else              s += "\"" + left.chStr + "\", ";
 
         // Concatenate right node's chStr.
-        s += "'right->chStr' : ";
-        if (right == null) s += "null }";
-        else                     s += "'" + right.chStr + "' }";
+        if (right == null) s += "NULL)";
+        else               s += "\"" + right.chStr + "\")";
 
         return s;
     }
@@ -75,6 +71,7 @@ class HuffmanLinkedList
         try
         {
             output5.write("constructHuffmanList(intput, output5): \n");
+            System.out.println("constructHuffmanList(intput, output5):");
 
             while (input.hasNext())
             {
@@ -88,8 +85,9 @@ class HuffmanLinkedList
 
                 // Print list to console and output file.
                 printList();
-                output5.write(this.toString());
+                output5.write(this.toString() + '\n');
             }
+            System.out.println();
             output5.write('\n');
         }
         catch (Exception e)
@@ -118,15 +116,7 @@ class HuffmanLinkedList
 
     public void printList()
     {
-        String nextString;
-        System.out.print("listHead-->");
-        for (listBinTreeNode i = listHead; i != null; i = i.next)
-        {
-            if (i.next == null) nextString = "null)-->";
-            else                nextString = i.next.chStr + ")-->";
-            System.out.print("(\"" + i.chStr + "\", " + i.prob + ", " + nextString);
-        }
-        System.out.print("null\n");
+        System.out.println(this.toString());
     }
 
     @Override
@@ -165,7 +155,7 @@ class HuffmanBinaryTree
         try
         {
             output5.write("constructHuffmanBinTree(list, output5): \n");
-
+            System.out.println("constructHuffmanBinTree(list, output5):");
             // Keep going until there is one node in list. 
             while (list.listHead.next != null) 
             {
@@ -264,14 +254,14 @@ class HuffmanBinaryTree
                 if (t == null)
                 { 
                     output1.write("This is an empty tree." + '\n');
-                    System.out.println("This is an empty tree." + '\n');
+                    System.out.println("This is an empty tree.");
                     System.exit(0); 
                 }
                 else if (HuffmanBinaryTree.isLeaf(t))
                 {
                     t.code = code;
                     output1.write(t.chStr + " : " + t.code + '\n');
-                    System.out.println(t.chStr + " : " + t.code + '\n');
+                    System.out.println(t.chStr + " : " + t.code);
                 }
                 else
                 {
@@ -308,14 +298,19 @@ public class Main
             hbt.constructHuffmanBinTree(hll, output5);      
         
             // Create the code for each char.
+            output1.write("constructCharCode(hbt.root, \"\", output1):\n");
+            System.out.println("constructCharCode(hbt.root, \"\", output1):");
             HuffmanBinaryTree.constructCharCode(hbt.root, "", output1);  
         
             output2.write("preOrder: \n");
             output3.write("inOrder: \n");
             output4.write("postOrder: \n");
         
-            hbt.preOrder(hbt.root, output2); 
+            System.out.println("preOrder:");
+            hbt.preOrder(hbt.root, output2);
+            System.out.println("inOrder:"); 
             hbt.inOrder(hbt.root, output3);
+            System.out.println("postOrder:");
             hbt.postOrder(hbt.root, output4);
         
             input.close();

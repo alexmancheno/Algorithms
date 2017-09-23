@@ -1,15 +1,22 @@
 constructHuffmanList(intput, output5): 
-listHead-->("dummy", 0, "d")-->("d", 2, null)-->nulllistHead-->("dummy", 0, "d")-->("d", 2, "f")-->("f", 4, null)-->nulllistHead-->("dummy", 0, "d")-->("d", 2, "f")-->("f", 4, "h")-->("h", 15, null)-->nulllistHead-->("dummy", 0, "d")-->("d", 2, "f")-->("f", 4, "k")-->("k", 6, "h")-->("h", 15, null)-->nulllistHead-->("dummy", 0, "d")-->("d", 2, "f")-->("f", 4, "k")-->("k", 6, "h")-->("h", 15, "m")-->("m", 47, null)-->nulllistHead-->("dummy", 0, "d")-->("d", 2, "f")-->("f", 4, "k")-->("k", 6, "h")-->("h", 15, "p")-->("p", 25, "m")-->("m", 47, null)-->nulllistHead-->("dummy", 0, "w")-->("w", 1, "d")-->("d", 2, "f")-->("f", 4, "k")-->("k", 6, "h")-->("h", 15, "p")-->("p", 25, "m")-->("m", 47, null)-->null
+listHead-->("dummy", 0, "d")-->("d", 2, null)-->null
+listHead-->("dummy", 0, "d")-->("d", 2, "f")-->("f", 4, null)-->null
+listHead-->("dummy", 0, "d")-->("d", 2, "f")-->("f", 4, "h")-->("h", 15, null)-->null
+listHead-->("dummy", 0, "d")-->("d", 2, "f")-->("f", 4, "k")-->("k", 6, "h")-->("h", 15, null)-->null
+listHead-->("dummy", 0, "d")-->("d", 2, "f")-->("f", 4, "k")-->("k", 6, "h")-->("h", 15, "m")-->("m", 47, null)-->null
+listHead-->("dummy", 0, "d")-->("d", 2, "f")-->("f", 4, "k")-->("k", 6, "h")-->("h", 15, "p")-->("p", 25, "m")-->("m", 47, null)-->null
+listHead-->("dummy", 0, "w")-->("w", 1, "d")-->("d", 2, "f")-->("f", 4, "k")-->("k", 6, "h")-->("h", 15, "p")-->("p", 25, "m")-->("m", 47, null)-->null
+
 constructHuffmanBinTree(list, output5): 
-t = { 'chStr' : 'wd', 'prob' : 3, 'next->chStr' : 'f', 'left->chStr' : 'w', 'right->chStr' : 'd' }
+("wd", 3, "f", "w", "d")
 listHead-->("w", 1, "d")-->("d", 2, "wd")-->("wd", 3, "f")-->("f", 4, "k")-->("k", 6, "h")-->("h", 15, "p")-->("p", 25, "m")-->("m", 47, null)-->null
-t = { 'chStr' : 'wdf', 'prob' : 7, 'next->chStr' : 'h', 'left->chStr' : 'wd', 'right->chStr' : 'f' }
+("wdf", 7, "h", "wd", "f")
 listHead-->("wd", 3, "f")-->("f", 4, "k")-->("k", 6, "wdf")-->("wdf", 7, "h")-->("h", 15, "p")-->("p", 25, "m")-->("m", 47, null)-->null
-t = { 'chStr' : 'kwdf', 'prob' : 13, 'next->chStr' : 'h', 'left->chStr' : 'k', 'right->chStr' : 'wdf' }
+("kwdf", 13, "h", "k", "wdf")
 listHead-->("k", 6, "wdf")-->("wdf", 7, "kwdf")-->("kwdf", 13, "h")-->("h", 15, "p")-->("p", 25, "m")-->("m", 47, null)-->null
-t = { 'chStr' : 'kwdfh', 'prob' : 28, 'next->chStr' : 'm', 'left->chStr' : 'kwdf', 'right->chStr' : 'h' }
+("kwdfh", 28, "m", "kwdf", "h")
 listHead-->("kwdf", 13, "h")-->("h", 15, "p")-->("p", 25, "kwdfh")-->("kwdfh", 28, "m")-->("m", 47, null)-->null
-t = { 'chStr' : 'pkwdfh', 'prob' : 53, 'next->chStr' : null, 'left->chStr' : 'p', 'right->chStr' : 'kwdfh' }
+("pkwdfh", 53, NULL, "p", "kwdfh")
 listHead-->("p", 25, "kwdfh")-->("kwdfh", 28, "m")-->("m", 47, "pkwdfh")-->("pkwdfh", 53, null)-->null
-t = { 'chStr' : 'mpkwdfh', 'prob' : 100, 'next->chStr' : null, 'left->chStr' : 'm', 'right->chStr' : 'pkwdfh' }
+("mpkwdfh", 100, NULL, "m", "pkwdfh")
 listHead-->("m", 47, "pkwdfh")-->("pkwdfh", 53, "mpkwdfh")-->("mpkwdfh", 100, null)-->null
