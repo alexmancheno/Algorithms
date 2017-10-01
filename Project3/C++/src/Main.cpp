@@ -68,7 +68,7 @@ struct HuffmanLinkedList
     void constructHuffmanList(ifstream& input, ofstream& output5)
     {
         string chStr;
-        int prob;
+        int prob; 
 
         output5 << "constructHuffmanList(input, output5): \n";
         cout << "constructHuffmanList(input, output5): \n";
@@ -253,6 +253,7 @@ int main(int argc, char** argv)
     // Create Huffman linked list with input file.
     HuffmanLinkedList* hll = new HuffmanLinkedList(); 
     hll->constructHuffmanList(input, output5); 
+    listBinTreeNode newn("akjsdl", 10);
 
     // Create Huffman binary tree from linked list.
     HuffmanBinaryTree* hbt = new HuffmanBinaryTree();
