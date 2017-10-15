@@ -1,31 +1,25 @@
 deleteHeap (sorted output):
-Deleting: -32
-Deleting: 3
-Deleting: 4
-Deleting: 4
-Deleting: 5
-Deleting: 7
-Deleting: 7
-Deleting: 7
-Deleting: 9
-Deleting: 9
-Deleting: 13
-Deleting: 16
-Deleting: 17
-Deleting: 18
-Deleting: 19
-Deleting: 19
-Deleting: 21
-Deleting: 23
-Deleting: 28
-Deleting: 28
-Deleting: 36
-Deleting: 61
-Deleting: 81
-Deleting: 82
-Deleting: 320
-Deleting: 412
-Deleting: 498
-Deleting: 499
-Deleting: 500
-Deleting: 1239
+3
+4
+4
+5
+7
+7
+7
+9
+9
+13
+16
+17
+18
+19
+19
+21
+23
+28
+28
+36
+61
+81
+82
+320

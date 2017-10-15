@@ -38,8 +38,8 @@ struct HeapSort
         {
             data = getRoot();
             // Print root data 
-            output2 << "Deleting: " << data << endl;
-            cout << "Deleting: " << data << endl;
+            output2 << data << endl;
+            cout << data << endl;
             
             // Swap root with last, delete last, and bubble down new root
             deleteRoot();

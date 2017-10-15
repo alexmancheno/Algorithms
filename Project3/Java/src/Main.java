@@ -285,9 +285,9 @@ public class Main
             Scanner input = new Scanner(new FileReader(argv[0])); // Open input file.
             FileWriter output1 = new FileWriter(argv[1]);   // For Huffman pairs.
             FileWriter output2 = new FileWriter(argv[2]);   // For pre-order traversal of Huffman binary tree.
-            FileWriter output3 = new FileWriter(argv[3]);  // For in-order traversal of Huffman binary tree.
+            FileWriter output3 = new FileWriter(argv[3]);   // For in-order traversal of Huffman binary tree.
             FileWriter output4 = new FileWriter(argv[4]);   // For post-order traversal of Huffman binary tree.
-            FileWriter output5 = new FileWriter(argv[5]);  // For debugging outputs.
+            FileWriter output5 = new FileWriter(argv[5]);   // For debugging outputs.
         
             // Create Huffman linked list with input file.
             HuffmanLinkedList hll = new HuffmanLinkedList(); 
