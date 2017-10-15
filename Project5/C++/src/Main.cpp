@@ -39,7 +39,7 @@ struct K_Mean
         numPts = np; K = k; numRow = nr; numCol = nc;
         // Initialize imageArray as dynamic 2D array
         imageArray = new int*[nr];
-        for (int i = 0; i < numRow; i++) imageArray[i] = new int[nc];
+        for (int i = 0; i < numRow; i++) imageArray[i] = new int[nc] {0};
         // Dynamically intialize pointsSet
         pointSet = new Point[np];
         // Dynamically initialize Kcentroids
@@ -75,11 +75,6 @@ struct K_Mean
     void mapPoints2Image()
     {
         for (int i = 0; i < numPts; i++) imageArray[pointSet[i].y][pointSet[i].x] = pointSet[i].label;
-    }
-
-    void plotAverages()
-    {
-        for (int j = 0; j < K; j++) imageArray[Kcentroids[j].y][Kcentroids[j].x] = Kcentroids[j].label + 5;
     }
 
     void kMeanClustering()
@@ -129,14 +124,14 @@ struct K_Mean
                 changeLabel++; 
             }
         }
-        cout << "change label: " << changeLabel << endl; 
     }
 
     void printPointSet(ofstream& output1)
     {
+        output1 << "final result of k-means clustering:\n";
+        output1 << K << endl << numPts << endl << numRow << " " << numCol << endl; 
         for (int i = 0; i < numPts; i++)
-            output1 << "the pixel is on row " << pointSet[i].y << " and column "
-            << pointSet[i].x << " and its cluster ID is " << pointSet[i].label << endl; 
+            output1 << pointSet[i].x << " " << pointSet[i].y << " " << pointSet[i].label << endl;
     }
 
     void prettyPrint(ofstream& output2)
@@ -182,6 +177,8 @@ int main(int argc, char** argv)
     // Assign each point a random label between 1 to k sequentially in pointSet array
     km.assignLabel();
 
+    output2 << "prettyPrint until changeLabel is 0:\n";
+
     // Keep iterating until we reach an iteration where there was no relabelling
     while (km.changeLabel > 0)
     {
@@ -198,7 +195,6 @@ int main(int argc, char** argv)
     }
     
     km.mapPoints2Image();
-    km.plotAverages(); 
     km.prettyPrint(output2);
     km.printPointSet(output1);
     
