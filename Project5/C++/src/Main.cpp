@@ -22,7 +22,7 @@ struct K_Mean
     // Nested xyCoord struct
     struct xyCoord
     {
-        int x, y, label;
+        double x, y, label;
         xyCoord() {}
         xyCoord(int x, int y, int label) { this->x = x; this->y = y; this->label = label; }
     };
@@ -81,21 +81,29 @@ struct K_Mean
     {
         int k;
         changeLabel = 0;
+        int* Kcount = new int[K]{0};
 
-        // Calculate the centroids
+        // Zero out previous iteration averages
+        for (int i = 0; i < K; i++)
+        {
+            Kcentroids[i].x = 0;
+            Kcentroids[i].y = 0;
+        }
+
+        // Add up the x, y points
         for (int i = 0; i < numPts; i++)
         {
             k = pointSet[i].label - 1;
-            if (Kcentroids[k].x > 0 && Kcentroids[k].y > 0)
-            {
-                Kcentroids[k].x = (Kcentroids[k].x + pointSet[i].x) / 2.0 + .5; // To round to closest integer
-                Kcentroids[k].y = (Kcentroids[k].y + pointSet[i].y) / 2.0 + .5;
-            }
-            else
-            {
-                Kcentroids[k].x = pointSet[i].x;
-                Kcentroids[k].y = pointSet[i].y;
-            }
+            Kcentroids[k].x += pointSet[i].x;
+            Kcentroids[k].y += pointSet[i].y;
+            Kcount[k]++;
+        }
+
+        // Calculate new averages with the count of each centroid
+        for (int i = 0; i < K; i++)
+        {
+            Kcentroids[i].x /= Kcount[i];
+            Kcentroids[i].y /= Kcount[i];
         }
 
         // For each point in pointSet, compute the distance from each centroid 1 to k. Then, change
