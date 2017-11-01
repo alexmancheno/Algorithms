@@ -1,0 +1,5 @@
+The path from 2 to 1:  1 <- 4 <- 5 <- 3 <- 2: cost = 30
+The path from 2 to 2:  2 <- 2: cost = 0
+The path from 2 to 3:  3 <- 2: cost = 5
+The path from 2 to 4:  4 <- 5 <- 3 <- 2: cost = 18
+The path from 2 to 5:  5 <- 3 <- 2: cost = 7

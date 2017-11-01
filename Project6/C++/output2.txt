@@ -1,0 +1,46 @@
+ ----- Iteration: 1 -----
+source node: 2
+min node: 3
+fatherAry: 1 2 2 4 5 
+bestCostAry: 99999 0 5 99999 99999 
+toDoAry: 1 0 0 1 1 
+
+source node: 2
+min node: 3
+fatherAry: 3 2 2 3 3 
+bestCostAry: 99999 0 5 99999 7 
+toDoAry: 1 0 0 1 1 
+
+ ----- Iteration: 2 -----
+source node: 2
+min node: 5
+fatherAry: 3 2 2 3 3 
+bestCostAry: 99999 0 5 99999 7 
+toDoAry: 1 0 0 1 0 
+
+source node: 2
+min node: 5
+fatherAry: 5 2 2 5 3 
+bestCostAry: 99999 0 5 18 7 
+toDoAry: 1 0 0 1 0 
+
+ ----- Iteration: 3 -----
+source node: 2
+min node: 4
+fatherAry: 5 2 2 5 3 
+bestCostAry: 99999 0 5 18 7 
+toDoAry: 1 0 0 0 0 
+
+source node: 2
+min node: 4
+fatherAry: 4 2 2 5 3 
+bestCostAry: 30 0 5 18 7 
+toDoAry: 1 0 0 0 0 
+
+ ----- Iteration: 4 -----
+source node: 2
+min node: 1
+fatherAry: 4 2 2 5 3 
+bestCostAry: 30 0 5 18 7 
+toDoAry: 0 0 0 0 0 
+
