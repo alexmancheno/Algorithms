@@ -44,23 +44,23 @@ struct DijkstraSSS
         }
     }
 
-    void setBestCostAry(int sourceNode)
+    void setBestCostAry(int sourceN)
     {
         for (int i = 1; i <= numNodes; i++) 
-            bestCostAry[i] = costMatrix[sourceNode][i];
+            bestCostAry[i] = costMatrix[sourceN][i];
     }
 
-    void setFatherAry(int sourceNode)
+    void setFatherAry(int sourceN)
     {
         for (int i = 1; i <= numNodes; i++)
-            fatherAry[i] = i;
+            fatherAry[i] = sourceN;
     }
 
-    void setToDoAry(int sourceNode)
+    void setToDoAry(int sourceN)
     {
         for (int i = 1; i <= numNodes; i++)
-            if (i == sourceNode) toDoAry[i] = 0;
-            else                 toDoAry[i] = 1;
+            if (i == sourceN) toDoAry[i] = 0;
+            else              toDoAry[i] = 1;
     }
 
     int findMinNode()
@@ -79,37 +79,32 @@ struct DijkstraSSS
                 minC = bestCostAry[i];
             }
         }
-        cout << minN << endl;
         return minN;
     }
 
 
-    int computeCost(int minNode, int currentNode) 
+    int computeCost(int minN, int currentN) 
     {
-        return bestCostAry[minNode] + costMatrix[minNode][currentNode];
+        return bestCostAry[minN] + costMatrix[minN][currentN];
     } 
 
-    void markMinNode(int minNode) { toDoAry[minNode] = 0; }
+    void markMinNode(int minN) { toDoAry[minN] = 0; }
 
-    void changeFather(int node, int minNode) { fatherAry[node] = minNode; }
+    void changeFather(int node, int minN) { fatherAry[node] = minN; }
 
-    void changeCost(int node, int newCost) 
-    {
-        bestCostAry[node] = newCost;
-    }
+    void changeCost(int node, int newC) { bestCostAry[node] = newC; }
 
     void debugPrint(ofstream& output2)
     {
         output2 << "source node: " << sourceNode << endl;
-        output2 << "min node: " << minNode << endl;
         output2 << "fatherAry: " << arrayToString(fatherAry) << endl;
         output2 << "bestCostAry: " << arrayToString(bestCostAry) << endl;
         output2 << "toDoAry: " << arrayToString(toDoAry) << "\n\n"; 
     }
     
-    void printShortestPath(int currentNode, ofstream& output1)
+    void printShortestPath(int currentN, ofstream& output1)
     {
-        int runningCost = 0, father = fatherAry[currentNode], child = currentNode;
+        int runningCost = 0, father = fatherAry[currentN], child = currentNode;
         output1 << "The path from " << sourceNode << " to " << child << ": "
                 << " " << child; 
         while(father != sourceNode)
@@ -133,26 +128,31 @@ struct DijkstraSSS
 
     void Dijkstra(ofstream& output1, ofstream& output2)
     {
-        int t = 1;
+        int solution = 1;
+
+        // Keep running until there are still nodes left to do in to-do array
         while (nodesAreStillLeftToDo())
         {
-            output2 << " ----- Iteration: " << t++ << " -----\n";
-            // step 3
+            output2 << " ----- Iteration: " << solution++ << " -----\n";
+            
+            // Find the current minimum node from nodes still left to do,
+            // and mark it as done
             minNode = findMinNode();
-
-            if (t == 2) changeFather(minNode, sourceNode);
-
             markMinNode(minNode);
             debugPrint(output2);
-            // step 4
-            currentNode = 1;
 
-            // step 5
+            /*  
+            For each node, check to see if the new cost is better
+            than the old cost (compare bestCostAry[minNode] + costMatrix[minNode][currentNode] and bestCostAry[currentNode]). If the new cost is better,
+            change node's best cost to the new cost in bestCostAry and change its
+            father to the minimum node.
+            */
+            currentNode = 1;
+            
             while (currentNode <= numNodes)
             {
                 if (toDoAry[currentNode] == 1)
                 {
-                    changeFather(currentNode, minNode);
                     newCost = computeCost(minNode, currentNode);
                     if (newCost < bestCostAry[currentNode])
                     {
@@ -165,22 +165,12 @@ struct DijkstraSSS
             }
         }
 
-        // Print the shortest path + the cost of the path for each node
+        // Print the shortest path + the cost of the path for each node to output1
         currentNode = 1;
         while (currentNode <= numNodes)
         {
             printShortestPath(currentNode, output1);
             currentNode++;
-        }
-    }
-
-    void printCostMatrix()
-    {
-        for (int r = 1; r <= numNodes; r++)
-        {
-            for (int c = 1; c <= numNodes; c++)
-                cout << costMatrix[r][c] << " ";
-            cout << endl;
         }
     }
 
@@ -205,6 +195,7 @@ int main(int argc, char** argv)
     input >> numNodes;
     input >> sourceNode;
 
+    // Create Dijsktra object, passing in its number of nodes and source node ID
     DijkstraSSS dijkstra(numNodes, sourceNode);
 
     // Load the cost matrix from input file to dijkstra object
