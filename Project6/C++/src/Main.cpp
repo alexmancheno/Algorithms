@@ -143,9 +143,9 @@ struct DijkstraSSS
 
             /*  
             For each node, check to see if the new cost is better
-            than the old cost (compare bestCostAry[minNode] + costMatrix[minNode][currentNode] and bestCostAry[currentNode]). If the new cost is better,
-            change node's best cost to the new cost in bestCostAry and change its
-            father to the minimum node.
+            than the old cost (compare bestCostAry[minNode] + costMatrix[minNode][currentNode]
+            and bestCostAry[currentNode]). If the new cost is better, change node's best cost 
+            to the new cost in bestCostAry and change its father to the minimum node.
             */
             currentNode = 1;
             
@@ -188,7 +188,7 @@ int main(int argc, char** argv)
     ofstream output1, output2;
     int sourceNode, numNodes;
 
-    input.open(argv[1]);
+    input.open(argv[1]);    // Input 
     output1.open(argv[2]);  // Output of single-source shortest path
     output2.open(argv[3]);  // Output for debugging
 
