@@ -41,15 +41,6 @@ class DijkstraSSS
             cost = input.nextInt();
             costMatrix[from][to] = cost;
         }
-
-        for (int r = 1; r <= numNodes; r++)
-        {
-            for (int c = 1; c <= numNodes; c++)
-            {
-                System.out.print(costMatrix[r][c] + " ");
-            }
-            System.out.println();
-        }
     }
 
     public void setBestCostAry(int sourceN)
@@ -105,10 +96,10 @@ class DijkstraSSS
     {
         try
         {
-            output2.write("source node: " + sourceNode + '\n');
-            output2.write("fatherAry: " + arrayToString(fatherAry) + '\n');
-            output2.write("bestCostAry: " + arrayToString(bestCostAry) + '\n');
-            output2.write("toDoAry: " + arrayToString(toDoAry) + "\n\n");
+            output2.write("source node: " + sourceNode + System.lineSeparator());
+            output2.write("fatherAry: " + arrayToString(fatherAry) + System.lineSeparator());
+            output2.write("bestCostAry: " + arrayToString(bestCostAry) + System.lineSeparator());
+            output2.write("toDoAry: " + arrayToString(toDoAry) + System.lineSeparator() + System.lineSeparator());
         }
         catch(Exception e)
         {
@@ -126,8 +117,11 @@ class DijkstraSSS
 
     public void printShortestPath(int currentN, FileWriter output1)
     {
+                
         try 
         {
+            // String newLine = System.getProperty("line.separator");//This will retrieve line separator dependent on OS.
+
             int runningCost = 0, father = fatherAry[currentN], child = currentNode;
             output1.write("The path from " + sourceNode + " to " + child + ": "
                     + " " + child); 
@@ -140,7 +134,7 @@ class DijkstraSSS
             }
 
             runningCost += costMatrix[father][child];
-            output1.write(" <- " + sourceNode + ": cost = " + runningCost + '\n');
+            output1.write(" <- " + sourceNode + ": cost = " + runningCost + System.lineSeparator());
         }
         catch(Exception e)
         {
@@ -157,7 +151,7 @@ class DijkstraSSS
         {
             try 
             {
-                output2.write(" ----- Iteration: " + solution++ + " -----\n");
+                output2.write(" ----- Iteration: " + solution++ + System.lineSeparator());
             }
             catch (Exception e)
             {
@@ -194,6 +188,15 @@ class DijkstraSSS
         }
 
         // Print the shortest path + the cost of the path for each node to output1
+        try 
+        {
+            output1.write("Source node = " + sourceNode + System.lineSeparator());
+            output1.write("The shortest path from the source node " + sourceNode + " are:" + System.lineSeparator());
+        }
+        catch (Exception e)
+        {
+            Main.printError(e);
+        }
         currentNode = 1;
         while (currentNode <= numNodes)
         {

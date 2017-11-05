@@ -166,6 +166,8 @@ struct DijkstraSSS
         }
 
         // Print the shortest path + the cost of the path for each node to output1
+        output1 << "Source node = " << sourceNode << endl;
+        output1 << "The shortest path from the source node " << sourceNode << " are:" << endl;
         currentNode = 1;
         while (currentNode <= numNodes)
         {
