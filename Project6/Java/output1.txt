@@ -1,0 +1,10 @@
+Source node = 3
+The shortest path from the source node 3 are:
+The path from 3 to 1:  1 <- 8 <- 2 <- 3: cost = 10
+The path from 3 to 2:  2 <- 3: cost = 2
+The path from 3 to 3:  3 <- 3: cost = 0
+The path from 3 to 4:  4 <- 3: cost = 5
+The path from 3 to 5:  5 <- 4 <- 3: cost = 10
+The path from 3 to 6:  6 <- 4 <- 3: cost = 8
+The path from 3 to 7:  7 <- 8 <- 2 <- 3: cost = 6
+The path from 3 to 8:  8 <- 2 <- 3: cost = 4

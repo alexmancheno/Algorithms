@@ -1,0 +1,77 @@
+ ----- Iteration: 1
+source node: 3
+fatherAry: 3 3 3 3 3 3 3 3 
+bestCostAry: 99999 2 0 5 99999 99999 30 10 
+toDoAry: 1 0 0 1 1 1 1 1 
+
+source node: 3
+fatherAry: 2 3 3 3 3 3 3 3 
+bestCostAry: 27 2 0 5 99999 99999 30 10 
+toDoAry: 1 0 0 1 1 1 1 1 
+
+source node: 3
+fatherAry: 2 3 3 3 3 3 3 2 
+bestCostAry: 27 2 0 5 99999 99999 30 4 
+toDoAry: 1 0 0 1 1 1 1 1 
+
+ ----- Iteration: 2
+source node: 3
+fatherAry: 2 3 3 3 3 3 3 2 
+bestCostAry: 27 2 0 5 99999 99999 30 4 
+toDoAry: 1 0 0 1 1 1 1 0 
+
+source node: 3
+fatherAry: 8 3 3 3 3 3 3 2 
+bestCostAry: 10 2 0 5 99999 99999 30 4 
+toDoAry: 1 0 0 1 1 1 1 0 
+
+source node: 3
+fatherAry: 8 3 3 3 3 8 3 2 
+bestCostAry: 10 2 0 5 99999 11 30 4 
+toDoAry: 1 0 0 1 1 1 1 0 
+
+source node: 3
+fatherAry: 8 3 3 3 3 8 8 2 
+bestCostAry: 10 2 0 5 99999 11 6 4 
+toDoAry: 1 0 0 1 1 1 1 0 
+
+ ----- Iteration: 3
+source node: 3
+fatherAry: 8 3 3 3 3 8 8 2 
+bestCostAry: 10 2 0 5 99999 11 6 4 
+toDoAry: 1 0 0 0 1 1 1 0 
+
+source node: 3
+fatherAry: 8 3 3 3 4 8 8 2 
+bestCostAry: 10 2 0 5 10 11 6 4 
+toDoAry: 1 0 0 0 1 1 1 0 
+
+source node: 3
+fatherAry: 8 3 3 3 4 4 8 2 
+bestCostAry: 10 2 0 5 10 8 6 4 
+toDoAry: 1 0 0 0 1 1 1 0 
+
+ ----- Iteration: 4
+source node: 3
+fatherAry: 8 3 3 3 4 4 8 2 
+bestCostAry: 10 2 0 5 10 8 6 4 
+toDoAry: 1 0 0 0 1 1 0 0 
+
+ ----- Iteration: 5
+source node: 3
+fatherAry: 8 3 3 3 4 4 8 2 
+bestCostAry: 10 2 0 5 10 8 6 4 
+toDoAry: 1 0 0 0 1 0 0 0 
+
+ ----- Iteration: 6
+source node: 3
+fatherAry: 8 3 3 3 4 4 8 2 
+bestCostAry: 10 2 0 5 10 8 6 4 
+toDoAry: 0 0 0 0 1 0 0 0 
+
+ ----- Iteration: 7
+source node: 3
+fatherAry: 8 3 3 3 4 4 8 2 
+bestCostAry: 10 2 0 5 10 8 6 4 
+toDoAry: 0 0 0 0 0 0 0 0 
+
