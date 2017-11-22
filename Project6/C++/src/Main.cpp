@@ -79,7 +79,7 @@ struct DijkstraSSS
                 minC = bestCostAry[i];
             }
         }
-        return minN;
+        return minN;ok
     }
 
 
