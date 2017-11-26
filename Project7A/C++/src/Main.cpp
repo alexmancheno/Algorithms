@@ -15,13 +15,10 @@ struct undirectedEdge
 
     string toString()
     {
-        return "(" + to_string(Ni) + ", " + to_string(Nj) + ", " + to_string(edgeCost) + ")";
+        return "<" + to_string(Ni) + ", " + to_string(Nj) + ", " + to_string(edgeCost) + ">";
     }
 
-    ~undirectedEdge()
-    {
-        delete next;    
-    }
+    ~undirectedEdge() { delete next; }
 };
 
 struct KruskalMST
@@ -66,14 +63,14 @@ struct KruskalMST
         return e;
     }
 
-    // Push edge node to the top of MSTofG
+    // Push edge node to the top of MSTofG 'stack'
     void pushEdge(undirectedEdge* edge)
     {
         edge->next = MSTofG;
         MSTofG = edge;
     }
 
-    // Modify inWhichSet(node2) to node1 if node1 is smaller than node2, otherwise do the opposotie so that node1 and node2 are in the same set
+    // Modify node2's set to node1's set if node1 < node2. Otherwise, do the reverse
     void merge2Sets(int node1, int node2)
     {
         if (node1 > node2) // to guarantee that node1 is less than node2
@@ -101,10 +98,10 @@ struct KruskalMST
     void printList(undirectedEdge* listHead, int n, ofstream& output2)
     {
         undirectedEdge* i = listHead;
-        output2 << "listHead ->";
+        output2 << "listHead -> ";
         while (i != NULL && n > 0)
         {
-            output2 << i->toString() << "->";
+            output2 << i->toString() << " -> ";
             i = i->next;
             n--;
         }
@@ -123,6 +120,7 @@ int main(int argc, char** argv)
     output1.open(argv[2]);  // For the MST of G
     output2.open(argv[3]);  // For debugging purposes
 
+    output2 << "*** Steps 0-3 (reading from input file): ***\n";
     // Step 0:
     input >> numberOfNodes;
     KruskalMST kruskal(numberOfNodes); 
@@ -139,6 +137,7 @@ int main(int argc, char** argv)
         kruskal.printList(kruskal.edgeListHead, 10, output2);
     }
 
+    output2 << "*** Steps 4-9 (finding MST): ***\n";
     do
     {
         do
