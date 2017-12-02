@@ -1,6 +1,0 @@
-*** A Kruskal's MST of the input graph is given below: ***
-2 3 2
-1 2 2
-2 5 1
-1 4 1
-*** The total cost of a Kruskal's MST is: 6 ***

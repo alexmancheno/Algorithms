@@ -1,6 +1,10 @@
 *** The Prim's MST of the input graph is given below: ***
-2 3 2
-2 5 1
-1 2 2
-1 4 1
-*** The total cost of the Prim's MST is: 6 ***
+3 5 4
+4 3 3
+2 4 1
+6 4 3
+9 8 2
+8 6 2
+6 7 2
+1 6 3
+*** The total cost of the Prim's MST is: 20 ***
