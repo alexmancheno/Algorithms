@@ -118,7 +118,7 @@ public class Main
             Scanner input = new Scanner(new FileReader(argv[0]));
             FileWriter output = new FileWriter(argv[1]);
 
-            Scanner input2 = new Scanner(new FileReader("input.txt"))
+            Scanner input2 = new Scanner(new FileReader("input.txt"));
             //Step 0:
             int numNode = input.nextInt(), newColor = 0;
             graphColoring graph = new graphColoring(numNode);;
